@@ -1,6 +1,11 @@
 <?php
+/*
+* Building Web Applications using PHP
+* Pedro Dos Passos
+* -----------------------------------------------------------------------------
+*/
 	include ('includes/session.php'); // Starts new or resume existing session.
-	
+
 	$dir = 'users'; // Users directory.
 	$file = 'users/users.php'; // Users text file for login information.
 	$error_count = 0; // Error counter.
@@ -8,7 +13,7 @@
 	$error_msg = array();
     echo 'Please use the logout link when you are finished registering staff to return to the homepage.';
     //echo $logout;
-	
+
 	if ((isset($_POST['submit'])) AND (loggedin())) { // Checks form was submitted and admin is currently logged in.
         if ((!empty($_POST['title'])) AND (ctype_alpha($_POST['title'])) AND (strlen($_POST['title']) > 1)) { // First name along with validation.
 			$trimmed = trim($_POST['title']);
@@ -64,7 +69,7 @@
 		}
 
 		if (isset($_POST['submit']) AND $error_count === 0) { // If there weren't any problems with the validation and form submitted.
-            
+
 			if (is_writable($file)) { // Checks the file is writable.
 				// Data to be written is assigned to a variable.
 				$data = $clean['title'] . "\t" . $clean['username'] . "\t" . $clean['password1'] . "\t" . $clean['email'] . "\t" . $clean['firstname'] . "\t" . $clean['lastname'] . PHP_EOL;
@@ -100,35 +105,35 @@
 		<form action="register.php" method="post">
 			<fieldset>
 			<legend>Staff details</legend>
-                
+
                 <p><label for="title">Title:</label><br />
 				<input type="text" name="title" id="title"
 				<?php if (isset($_POST['title'])=== true) {echo 'value="', strip_tags($_POST['title']),'"'; }?>/></p>
-                
+
 				<p><label for="firstname">First Name:</label><br />
 				<input type="text" name="firstname" id="firstname"
 				<?php if (isset($_POST['firstname'])=== true) {echo 'value="', strip_tags($_POST['firstname']),'"'; }?>/></p>
-				
+
 				<p><label for="lastname">Last Name:</label><br />
 				<input type="text" name="lastname" id="lastname"
 				<?php if (isset($_POST['lastname'])=== true) {echo 'value="', strip_tags($_POST['lastname']),'"'; }?>/></p>
-				
+
 				<p><label for="email">Email:</label><br />
 				<input type="text" name="email" id="email"
 				<?php if (isset($_POST['email'])=== true) {echo 'value="', strip_tags($_POST['email']),'"'; }?>/></p>
-				
+
 				<p><label for="username">Username:</label><br />
 				<input type="text" name="username"  id="username"
 				<?php if (isset($_POST['username'])=== true) {echo 'value="', strip_tags($_POST['username']),'"'; }?>/></p>
-				
+
 				<p><label for="password1">Password:</label><br />
 				<input type="password" name="password1" id="password1" /></p>
-				
+
 				<p><label for="password2">Confirm Password:</label><br />
 				<input type="password" name="password2" id="password2"/></p>
-				
+
 				<input type="submit" name="submit" id="submit" value="Register"/>
-				
+
 			</fieldset>
         </form>
 	</body>

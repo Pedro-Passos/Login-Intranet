@@ -1,6 +1,11 @@
 <?php
+/*
+* Building Web Applications using PHP
+* Pedro Dos Passos
+* -----------------------------------------------------------------------------
+*/
 	// Starts new or resume existing session.
-	include ('includes/session.php'); 
+	include ('includes/session.php');
 	if(!loggedin()) {
 		// If user isn't logged in they are notified they need to be a member to have full access to the website.
 		echo $not_logged;

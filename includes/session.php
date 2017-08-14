@@ -1,4 +1,9 @@
 <?php
+/*
+* Building Web Applications using PHP
+* Pedro Dos Passos
+* -----------------------------------------------------------------------------
+*/
 	// Starts new or resume existing session
 	session_start();
 	// Function checks if the user is logged in by cheking the session.

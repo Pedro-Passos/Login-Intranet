@@ -1,4 +1,9 @@
 <?php
+/*
+* Building Web Applications using PHP
+* Pedro Dos Passos
+* -----------------------------------------------------------------------------
+*/
 	// Starts new or resume existing session.
 	include ('includes/session.php');
 	if(!loggedin()) {
@@ -18,7 +23,7 @@
         <title>Public Content</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
-    <body>        
+    <body>
 		<h1>Intranet</h1>
 		<ul>
 			<li><a href="results/DTresults.php">Introduction to Database Technology - DT Results</a></li>
